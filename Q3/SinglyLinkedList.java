@@ -2,9 +2,35 @@ import java.util.*;
 
 public class SinglyLinkedList<E> implements List<E>, Iterable<E> {
 
+    // public int count(E fromElement, E toElement) {
+    //     throw new UnsupportedOperationException("replace with your implementation");
+    // }
+    // Public method to count elements between fromElement and toElement
     public int count(E fromElement, E toElement) {
-        throw new UnsupportedOperationException("replace with your implementation");
+        // if (head == null)
+        //     return 0; // Empty list case
+        // Node<E> current = head;
+        // // Find the fromElement
+        // while (current != null && !current.value.equals(fromElement)) {
+        //     current = current.next;
+        // }
+        // if (current == null)
+        //     return 0; // fromElement not found
+        // // Call the recursive count method
+        return count(head, fromElement, toElement, 0);
     }
+
+    // Private recursive method to count elements
+    private int count(Node<E> p, E fromElement, E toElement, int count) {
+        // Base case: end of list or toElement found
+        if (p == null || p.value.equals(toElement)) {
+            return p == null ? count : count + 1; // Include toElement in count
+        }
+        // Recursive case
+        return count(p.next, fromElement, toElement, count + 1);
+    }
+
+    
 
     private static class Node<T> {
         private T value;
