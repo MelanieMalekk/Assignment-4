@@ -25,7 +25,7 @@ public class LinkedList<E> implements List<E> {
     }
 
     private class LinkedListIterator implements Iterator<E> {
-
+        //private int index_holder = 0;
         private Node<E> current = head;
 
         public boolean hasNext() {
@@ -39,14 +39,61 @@ public class LinkedList<E> implements List<E> {
             }
 
             current = current.next;
+            //index_holder++;
 
             return current.value;
         }
     }
+    // public int nextIndex(){
+           
+    //     return index_holder;
+    // }
 
     public Iterator<E> iterator() {
         return new LinkedListIterator();
     }
+
+    // public Iterator<E> iterator(int nextIndex){
+    // if(nextIndex > size() || nextIndex < 0){
+    //     throw new IndexOutOfBoundsException("the given index is out of bounds");
+    // }
+    
+    // Node<E> p = head.next;
+
+    //     for (int i = 0; i < nextIndex - 1; i++) {
+    //         p = p.next;
+    //     }
+
+
+    //     LinkedListIterator newITer = new LinkedListIterator();
+    //     newITer.current = p;
+    //     newITer.index_holder = nextIndex;
+
+    //     return newITer;
+
+    // }
+    // @SuppressWarnings("unchecked")
+    // public Iterator<E> iterator(Iterator<E> other){
+    //     if(other == null){
+    //         throw new IllegalArgumentException("the input is null");
+    //     }
+
+    //     LinkedListIterator otherIt = null;
+
+        
+    //     otherIt = (LinkedListIterator) other;
+        
+    //     if (otherIt != null) {
+    //         LinkedListIterator myiterator = new LinkedListIterator();
+    //         myiterator.current = otherIt.current;
+    //         myiterator.index_holder = otherIt.index_holder;
+    //         return myiterator;
+
+    //     } 
+
+    //     return otherIt;
+        
+    // }
 
     public int size() {
         return size;
